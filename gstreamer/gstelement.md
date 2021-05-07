@@ -5,3 +5,10 @@
  */
 typedef	void (* GstDebugFuncPtr)	(void);
 ```
+```
+#define GST_DEBUG_FUNCPTR(ptr) (_gst_debug_register_funcptr((GstDebugFuncPtr)(ptr), #ptr) , ptr)
+GST_DEBUG_FUNCPTR:
+Expands to:
+
+(_gst_debug_register_funcptr((GstDebugFuncPtr)(gst_element_set_state_func), "gst_element_set_state_func") , gst_element_set_state_func)
+```
